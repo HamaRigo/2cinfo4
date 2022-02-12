@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Student;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,12 +17,15 @@ class StudentType extends AbstractType
             ->add('description')
             ->add('enbaled')
             ->add('level')
+            ->add('classroom')
+            ->add('Envoyer',SubmitType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            // Configure your form options here
             'data_class' => Student::class,
         ]);
     }
